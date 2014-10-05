@@ -28,7 +28,7 @@ class ProfesorController extends Controller
 	{
 		return array(
 			array('allow',  //Permite todas a las acciones a las cuentas de tipo ADMINISTRADOR
-				'actions'=>array('index','view','create','update','admin','delete'),
+				'actions'=>array('index','view','create','update','admin','delete','asignarRol','eliminarRol'),
 				'roles'=>array('ADMINISTRADOR'),
 			),
 			array('deny',  // deny all users

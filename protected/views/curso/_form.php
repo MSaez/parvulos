@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /* @var $this CursoController */
 /* @var $model Curso */
 /* @var $form CActiveForm */
@@ -15,7 +15,7 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Los campos con  <span class="required">*</span> son obligatorios.</p>
+	<p class="note">Los campos con <span class="required">*</span> son obligatorios.</p>
 
 	<?php echo $form->errorSummary($model); ?>
 

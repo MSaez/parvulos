@@ -6,7 +6,7 @@
  * The followings are the available columns in table 'cursa':
  * @property integer $ID
  * @property string $RUT_A
- * @property string $ID_C
+ * @property integer $ID_C
  * @property integer $ANIO_C
  *
  * The followings are the available model relations:
@@ -48,9 +48,8 @@ class Cursa extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('RUT_A, ID_C, ANIO_C', 'required'),
-			array('ANIO_C', 'numerical', 'integerOnly'=>true),
+			array('ID_C, ANIO_C', 'numerical', 'integerOnly'=>true),
 			array('RUT_A', 'length', 'max'=>12),
-			array('ID_C', 'length', 'max'=>4),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('ID, RUT_A, ID_C, ANIO_C', 'safe', 'on'=>'search'),
@@ -119,7 +118,7 @@ class Cursa extends CActiveRecord
 
 		$criteria->compare('ID',$this->ID);
 		$criteria->compare('RUT_A',$this->RUT_A,true);
-		$criteria->compare('ID_C',$this->ID_C,true);
+		$criteria->compare('ID_C',$this->ID_C);
 		$criteria->compare('ANIO_C',$this->ANIO_C);
 
 		return new CActiveDataProvider($this, array(

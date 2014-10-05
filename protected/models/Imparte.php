@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * This is the model class for table "imparte".
@@ -6,11 +6,11 @@
  * The followings are the available columns in table 'imparte':
  * @property integer $id
  * @property string $RUT_P
- * @property string $ID_C
+ * @property integer $ID_C
  *
  * The followings are the available model relations:
- * @property Profesor $rUTP
  * @property Curso $iDC
+ * @property Profesor $rUTP
  */
 class Imparte extends CActiveRecord
 {
@@ -31,8 +31,8 @@ class Imparte extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('RUT_P, ID_C', 'required'),
+			array('ID_C', 'numerical', 'integerOnly'=>true),
 			array('RUT_P', 'length', 'max'=>12),
-			array('ID_C', 'length', 'max'=>4),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, RUT_P, ID_C', 'safe', 'on'=>'search'),
@@ -47,8 +47,8 @@ class Imparte extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'rUTP' => array(self::BELONGS_TO, 'Profesor', 'RUT_P'),
 			'iDC' => array(self::BELONGS_TO, 'Curso', 'ID_C'),
+			'rUTP' => array(self::BELONGS_TO, 'Profesor', 'RUT_P'),
 		);
 	}
 
@@ -84,7 +84,7 @@ class Imparte extends CActiveRecord
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('RUT_P',$this->RUT_P,true);
-		$criteria->compare('ID_C',$this->ID_C,true);
+		$criteria->compare('ID_C',$this->ID_C);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

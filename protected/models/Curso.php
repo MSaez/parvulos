@@ -9,7 +9,7 @@
  *
  * The followings are the available model relations:
  * @property Cursa[] $cursas
- * @property Profesor[] $profesors
+ * @property Imparte[] $impartes
  */
 class Curso extends CActiveRecord
 {
@@ -29,7 +29,6 @@ class Curso extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('NOMBRE_C','required'),
 			array('ID_C', 'length', 'max'=>4),
 			array('NOMBRE_C', 'length', 'max'=>20),
 			// The following rule is used by search().
@@ -47,7 +46,7 @@ class Curso extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'cursas' => array(self::HAS_MANY, 'Cursa', 'ID_C'),
-			'profesors' => array(self::MANY_MANY, 'Profesor', 'imparte(ID_C, RUT_P)'),
+			'impartes' => array(self::HAS_MANY, 'Imparte', 'ID_C'),
 		);
 	}
 
@@ -57,8 +56,8 @@ class Curso extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'ID_C' => 'Id',
-			'NOMBRE_C' => 'Nombre ',
+			'ID_C' => 'Id C',
+			'NOMBRE_C' => 'Nombre C',
 		);
 	}
 
@@ -80,8 +79,8 @@ class Curso extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('Id Curso',$this->ID_C,true);
-		$criteria->compare('Nombre',$this->NOMBRE_C,true);
+		$criteria->compare('ID_C',$this->ID_C,true);
+		$criteria->compare('NOMBRE_C',$this->NOMBRE_C,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

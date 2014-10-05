@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /* @var $this CursoController */
 /* @var $model Curso */
 

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /* @var $this CursoController */
 /* @var $model Curso */
 
@@ -16,6 +16,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Actualizar Curso <?php echo $model->NOMBRE_C; ?></h1>
+<h1>Actualizar Curso <?php echo $model->ID_C; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>
